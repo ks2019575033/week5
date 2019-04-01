@@ -1,0 +1,105 @@
+command                           Action
+vi -c command file                opem file,execute command,which is usually as search command or line number (POSIX) 
+vi +/pattern file                 open file directly at pattern
+ex file                           invoke ex on file
+ex -file < script                 invoke ex on file,taking commands from script;suppress informative mesages and prompts (POSIX)
+
+
+vi commands
+vi commands are used in "screen" mod (the default)< where you use the commands to move around the sceeen and to per form operations on the text
+
+most vi commands follow a general pattern:
+     [command][number]textobject
+
+or the equivalent form
+
+     [number][command]textobject
+
+Movement commands
+vi movement commands distinguish between two kinds of "words." the lowercase commmands define a word as a contig uous sequence of underscores, letters,and digits. the upper case commands define a word as a contiguous sequence of 
+nonwhite space characters
+
+command                        meaning
+character 
+h,j,k,l                        Left,down,up,right
+
+Text
+w,W,b,b                        Forward,backward by word
+e,E                            end of word
+),(                            beginning of if bext,previous sentence
+},{                            beginning if next,previous paragraph
+]],[[                          beginning of next, previous section
+
+lines
+ENTER                          first nonblank character of next line
+0,$                            first,last position of current line
+^                              first nonblank character of current line
++,-                            first nonblank chracter of next,previous line
+n|                             Column n of current line
+H,M,L                          Top,middle,last line of screen
+n H                            n (number) if kubes after top line
+n L                            n (number) of lines before last line
+
+scrolling                    
+CTRL F CTRL B                  scroll forward,backward one screen
+CTRL D CTRL U                  scroll down, up one half-screen
+CTRL E CTRL Y                  show one more line at bottom,top of window
+zENTER                         Reposition line with cursor:to top of screen
+z.                             reposition line with cursor: to bottom of screen
+CTRL L                         Redraw screen (without scrolling)
+
+connabd                        meaning
+searches
+/pattern                       search forward for pattern
+?pattern                       search backward for pattern
+n,N                            Repeat last search in same,opposite diretion
+/.?                            repeat orevious search forward,backward
+fx                             search forward for character x in current line
+Fx                             search backward for character xin current line
+tx                             search firward to character before xin current line
+Tx                             search backward to character after xin current line
+;                              reapeat previous current live search
+'                              repeat previous current line search in opposite direction
+
+line number                    
+CTRLG                          display current line number
+nG                             move to line number n
+G                              move to last line in file
+:n                             move to line n in file
+
+marking position
+mx                             mark current position as x
+'x                             move cursor to mark x (grave accent)
+''                             return to previous mark or context (two grve accent)
+'x                             move to beginning of line containing mark x (single quote)
+``                             return to beginning of line containing previous narj (two single quotes)
+
+Editing commands
+command                        action
+insert
+i,a                            insert text before,after cursor
+I,A                            insert text before beginning,after end of line
+o,0                            open new line for text below,above cursor
+change
+cw                             change word
+cc                             change current line
+c motion                       change text between the cursor and the targer of motion
+c                              change to end of line
+r                              replace single characters
+s                              substitute: dekete character and insert new text
+S                              Substitute:delete current line and insert new text
+
+Delete,move
+x                              Delete character under cursir
+X                              Delete character before cursor
+dw                             delete word
+dd                             Delete current line
+dmotion                        Delete text between the cursor and the target of motion
+D                              Delete to end of line
+p,P                            put deleted text after,before cursor
+"np                            put text from delete buffer number n after cursir (for last nine deletions)
+
+Yank
+yw                             yank(copy)word
+
+         
